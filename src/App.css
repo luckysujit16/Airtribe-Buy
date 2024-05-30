@@ -150,3 +150,17 @@ figcaption h4 {
 figcaption p {
   margin: 0.5rem 0;
 }
+
+.star-rating {
+  color: rgb(250, 179, 0);
+  font-size: 1.5em;
+}
+
+.quantity label {
+  padding: 10px;
+}
+
+.quantity input {
+  text-align: center;
+  font-size: 1.25rem;
+}

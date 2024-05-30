@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { renderStarRating } from "./Helper";
 
 const ProductsPage = () => {
   const [products, setProducts] = useState([]);
@@ -10,14 +11,14 @@ const ProductsPage = () => {
       .get("https://fakestoreapi.com/products")
       .then((res) => {
         setProducts(res.data);
-        return setProducts;
-        // console.log("Product Data fetched:", res.data[0].title);
+
+        console.log("Product Data fetched:", res.data);
       })
       .catch((err) => console.log(err));
   }, []);
 
   return (
-    <div className="container-fluid m-2">
+    <div className="container-fluid h-100 m-2 overflow-hidden">
       <h3>Products Page</h3>
       <div className="products-grid">
         {products.map((product) => (
@@ -31,8 +32,8 @@ const ProductsPage = () => {
                 <p>Price: ${product.price}</p>
                 <p>Category: {product.category}</p>
                 <p>
-                  Rating: {product.rating.rate} (based on {product.rating.count}{" "}
-                  reviews)
+                  Rating: {renderStarRating(product.rating.rate)} (based on{" "}
+                  {product.rating.count} reviews)
                 </p>
               </figcaption>
               <Link to={`/products/${product.id}`}>

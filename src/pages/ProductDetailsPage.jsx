@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { renderStarRating } from "./Helper";
 import axios from "axios";
 
 const ProductDetailsPage = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
+  const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
     axios
@@ -16,28 +18,56 @@ const ProductDetailsPage = () => {
       .catch((err) => console.log(err));
   }, [id]);
 
+  const handleAddToCart = () => {
+    addToCart(product, quantity);
+  };
+
   if (!product) {
-    return <div>Loading...</div>;
+    return (
+      <div className="container-fluid text-center p-5 m-0 h-100 overflow-hidden">
+        <div class="spinner-grow  text-warning" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    );
   }
 
   return (
-    <div className="container">
+    <div className="container-fluid p-5 m-0 h-100 overflow-hidden">
       <div className="row">
         <h3>Product Details / {product.title}</h3>
       </div>
-      <div className="product-details p-5">
+      <div className="col-lg-12 w-100 product-details p-5 overflow-hidden">
         <div className="col-lg-12 col-md-6 col-sm-6">
           <img src={product.image} alt={product.title} />
           {/* <h3 className="text-center p-5">{product.title}</h3> */}
         </div>
         <div className="col-lg-12 col-md-6 col-sm-6">
-          <p className="text-medium">{product.description}</p>
-          <p>Price: ${product.price}</p>
-          <p>Category: {product.category}</p>
-          <p>
-            Rating: {product.rating.rate} (based on {product.rating.count}{" "}
-            reviews)
+          <p className="fs-5">{product.description}</p>
+          <p className="fs-3 fw-bold">Price: ${product.price}</p>
+          <p className="fs-5">Category: {product.category}</p>
+          <p className="fs-3 fw-bolder">
+            Rating: {renderStarRating(product.rating.rate)}{" "}
           </p>
+          <p className="fs-5">(based on {product.rating.count} reviews)</p>
+          <div className="quantity fs-4">
+            <label htmlFor="quantity">Quantity: </label>
+            <input
+              type="number"
+              className="fs-4"
+              id="quantity"
+              name="quantity"
+              min="1"
+              value={quantity}
+              onChange={(e) => setQuantity(e.target.value)}
+            />
+          </div>
+          <button
+            onClick={handleAddToCart}
+            className="btn btn-primary fs-5 mt-3"
+          >
+            Add to Cart
+          </button>
         </div>
       </div>
     </div>

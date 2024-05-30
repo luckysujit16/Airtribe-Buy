@@ -1,5 +1,4 @@
 import { RouterProvider } from "react-router-dom";
-
 import { Navigate, createBrowserRouter } from "react-router-dom";
 import PrivateRoute from "./PrivateRoute";
 import ProductsPage from "../pages/ProductsPage";
