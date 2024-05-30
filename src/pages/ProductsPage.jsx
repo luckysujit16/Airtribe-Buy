@@ -22,6 +22,7 @@ const ProductsPage = () => {
           <div className="product-card" key={product.id}>
             <figure>
               <img src={product.image} alt={product.title} />
+              
               <figcaption>
                 <h4>{product.title}</h4>
                 {/* <p className="mt-3">{product.description}</p> */}
@@ -29,6 +30,7 @@ const ProductsPage = () => {
                 <p>Category: {product.category}</p>
                 <p>Rating: {product.rating.rate} (based on {product.rating.count} reviews)</p>
               </figcaption>
+              <button className="btn btn-primary m-5">Add To Cart</button>
             </figure>
           </div>
         ))}
