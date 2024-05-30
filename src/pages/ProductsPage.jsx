@@ -8,11 +8,17 @@ const ProductsPage = () => {
     axios
       .get("https://fakestoreapi.com/products")
       .then((res) => {
-        setProducts(res.data);
+        const prodList = setProducts(res.data);
         console.log("Product Data fetched:", res.data);
+        return prodList
       })
       .catch((err) => console.log(err));
   }, []);
+
+  const addToCart = (id)=>{
+    window.location =  "/purchase"
+    alert("Product Added to Cart : ID " + id)
+  }
 
   return (
     <div className="container-fluid m-2">
@@ -30,7 +36,7 @@ const ProductsPage = () => {
                 <p>Category: {product.category}</p>
                 <p>Rating: {product.rating.rate} (based on {product.rating.count} reviews)</p>
               </figcaption>
-              <button className="btn btn-primary m-5">Add To Cart</button>
+              <button type="button" onClick={()=>{addToCart(product.id)}} className="btn btn-primary m-2">Add To Cart</button>
             </figure>
           </div>
         ))}
