@@ -1,4 +1,3 @@
-import React from "react";
 import { RouterProvider } from "react-router-dom";
 import { Navigate, createBrowserRouter } from "react-router-dom";
 import PrivateRoute from "./PrivateRoute";
@@ -40,9 +39,12 @@ const router = createBrowserRouter([
 
 function AppRouter() {
   return (
+    
     <CartProvider>
       <RouterProvider router={router} />;
     </CartProvider>
+    
+
   );
 }
 

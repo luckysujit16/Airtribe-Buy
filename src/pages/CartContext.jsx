@@ -1,31 +1,33 @@
 import React, { createContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
+  // const navigate = useNavigate();
 
   const addToCart = (product, quantity) => {
     const existingProduct = cart.find((item) => item.id === product["id"]);
-    // alert(JSON.stringify(existingProduct));
+    alert(JSON.stringify(existingProduct));
 
     if (existingProduct) {
       setCart(
         cart.map((item) =>
           item.id === product.id
-            ? { ...item, quantity: item.quantity + quantity }
+            ? { ...item, quantity: Number(item.quantity) + Number(quantity) }
             : item
         )
       );
       alert("We have Reached IF setCart");
     } else {
-      let obj = setCart([...cart, { ...product, quantity }]);
+      setCart([...cart, { ...product, quantity }]);
       alert("We have Reached ELSE setCart :");
     }
   };
 
   const getCartTotal = () => {
-    return cart.reduce((total, item) => total + item.price * item.quantity, 0);
+    return cart.reduce((total, item) => { return Number(total) + Number(item.price) * Number(item.quantity)}, 0);
   };
 
   return (

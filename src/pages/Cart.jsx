@@ -14,6 +14,7 @@ const Cart = () => {
           </li>
         ))}
       </ul>
+      {console.log({cart})}
       <h4>Total Amount: ${getCartTotal()}</h4>
     </div>
   );
