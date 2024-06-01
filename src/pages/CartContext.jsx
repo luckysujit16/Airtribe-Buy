@@ -17,10 +17,10 @@ const CartProvider = ({ children }) => {
             : item
         )
       );
-      alert("We have Reached IF setCart" + setCart().item);
+      alert("We have Reached IF setCart");
     } else {
       let obj = setCart([...cart, { ...product, quantity }]);
-      alert("We have Reached ELSE setCart :", obj);
+      alert("We have Reached ELSE setCart :");
     }
   };
 
