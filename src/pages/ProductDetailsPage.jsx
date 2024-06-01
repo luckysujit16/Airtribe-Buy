@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { renderStarRating } from "./Helper";
+import { CartContext } from "./CartContext.jsx";
 import axios from "axios";
 
 const ProductDetailsPage = () => {
   const { id } = useParams();
+  const { addToCart } = useContext(CartContext);
   const [product, setProduct] = useState(null);
   const [quantity, setQuantity] = useState(1);
 
@@ -13,7 +15,7 @@ const ProductDetailsPage = () => {
       .get(`https://fakestoreapi.com/products/${id}`)
       .then((res) => {
         setProduct(res.data);
-        console.log("Product Data fetched:", res.data);
+        // console.log("Product Data fetched:", res.data);
       })
       .catch((err) => console.log(err));
   }, [id]);
@@ -25,13 +27,12 @@ const ProductDetailsPage = () => {
   if (!product) {
     return (
       <div className="container-fluid text-center p-5 m-0 h-100 overflow-hidden">
-        <div class="spinner-grow  text-warning" role="status">
-          <span class="visually-hidden">Loading...</span>
+        <div className="spinner-grow  text-warning" role="status">
+          <span className="visually-hidden">Loading...</span>
         </div>
       </div>
     );
   }
-
   return (
     <div className="container-fluid p-5 m-0 h-100 overflow-hidden">
       <div className="row">

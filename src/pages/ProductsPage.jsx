@@ -12,7 +12,7 @@ const ProductsPage = () => {
       .then((res) => {
         setProducts(res.data);
 
-        console.log("Product Data fetched:", res.data);
+        // console.log("Product Data fetched:", res.data);
       })
       .catch((err) => console.log(err));
   }, []);

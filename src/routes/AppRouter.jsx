@@ -1,9 +1,11 @@
+import React from "react";
 import { RouterProvider } from "react-router-dom";
 import { Navigate, createBrowserRouter } from "react-router-dom";
 import PrivateRoute from "./PrivateRoute";
 import ProductsPage from "../pages/ProductsPage";
 import ProductDetailsPage from "../pages/ProductDetailsPage";
-import CartPage from "../pages/CartPage";
+import CartProvider from "../pages/CartContext.jsx";
+import Cart from "../pages/Cart.jsx";
 import CheckoutPage from "../pages/CheckoutPage";
 
 const router = createBrowserRouter([
@@ -25,8 +27,9 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <CartPage />,
+        element: <Cart />,
       },
+
       {
         path: "checkout",
         element: <CheckoutPage />,
@@ -36,7 +39,11 @@ const router = createBrowserRouter([
 ]);
 
 function AppRouter() {
-  return <RouterProvider router={router} />;
+  return (
+    <CartProvider>
+      <RouterProvider router={router} />;
+    </CartProvider>
+  );
 }
 
 export default AppRouter;
