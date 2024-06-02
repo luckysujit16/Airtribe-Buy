@@ -1,15 +1,13 @@
 import React, { createContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 export const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
-  // const navigate = useNavigate();
 
   const addToCart = (product, quantity) => {
     const existingProduct = cart.find((item) => item.id === product["id"]);
-    alert(JSON.stringify(existingProduct));
+    // alert(JSON.stringify(existingProduct));
 
     if (existingProduct) {
       setCart(
@@ -20,13 +18,11 @@ const CartProvider = ({ children }) => {
         )
       );
 
-      setQnt(cart.map((quantity) => qnt) + qnt);
-
-      alert("We have Reached IF setCart :", addToCart);
-      console.log(cart);
+      // alert("We have Reached IF setCart :", addToCart);
+      // console.log(cart);
     } else {
       setCart([...cart, { ...product, quantity }]);
-      alert("We have Reached ELSE setCart :");
+      // alert("We have Reached ELSE setCart :");
     }
   };
 

@@ -71,7 +71,9 @@ const ProductDetailsPage = () => {
             Add to Cart
           </button>
           <button
-            onClick={()=> {navigate("/purchase")}}
+            onClick={() => {
+              navigate("/purchase");
+            }}
             className="btn btn-primary fs-5 ml-3"
           >
             Purchase
