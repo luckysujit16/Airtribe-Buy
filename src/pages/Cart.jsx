@@ -3,7 +3,7 @@ import { CartContext } from "./CartContext";
 
 const Cart = () => {
   const { cart, getCartTotal } = useContext(CartContext);
-  //   alert("Cart Page");
+  // alert("Cart Page :", cart);
   return (
     <div className="container">
       <h3>Shopping Cart</h3>

@@ -65,7 +65,7 @@ const ProductDetailsPage = () => {
           </div>
           <button
             onClick={handleAddToCart}
-            className="btn btn-primary fs-5 mt-3"
+            className="btn btn-primary btn-lg btn-block mt-3"
           >
             Add to Cart
           </button>
