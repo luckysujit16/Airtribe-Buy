@@ -1,3 +1,5 @@
+import Alert from "react-bootstrap/Alert";
+
 export const renderStarRating = (rating) => {
   const fullStars = Math.floor(rating);
   const halfStar = rating % 1 !== 0;
@@ -10,3 +12,28 @@ export const renderStarRating = (rating) => {
     </span>
   );
 };
+
+function LinksExample() {
+  return (
+    <>
+      {[
+        "primary",
+        "secondary",
+        "success",
+        "danger",
+        "warning",
+        "info",
+        "light",
+        "dark",
+      ].map((variant) => (
+        <Alert key={variant} variant={variant}>
+          This is a {variant} alert with{" "}
+          <Alert.Link href="#">an example link</Alert.Link>. Give it a click if
+          you like.
+        </Alert>
+      ))}
+    </>
+  );
+}
+
+export default LinksExample;

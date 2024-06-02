@@ -1,14 +1,12 @@
 import React, { createContext, useState } from "react";
+import LinksExample from "./Helper";
 
 export const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
-
   const addToCart = (product, quantity) => {
     const existingProduct = cart.find((item) => item.id === product["id"]);
-    // alert(JSON.stringify(existingProduct));
-
     if (existingProduct) {
       setCart(
         cart.map((item) =>
@@ -17,12 +15,23 @@ const CartProvider = ({ children }) => {
             : item
         )
       );
-
-      // alert("We have Reached IF setCart :", addToCart);
-      // console.log(cart);
+      // LinksExample("success");
+      alert(
+        "Existing Product Qnt : " +
+          existingProduct.quantity +
+          " Added to Cart : " +
+          existingProduct.title
+      );
+      console.log(cart);
     } else {
       setCart([...cart, { ...product, quantity }]);
-      // alert("We have Reached ELSE setCart :");
+      LinksExample("success");
+      alert(
+        "New Product Qnt : " +
+          existingProduct.quantity +
+          " Added to Cart : " +
+          existingProduct.title
+      );
     }
   };
 

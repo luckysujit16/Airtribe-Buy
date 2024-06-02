@@ -74,7 +74,7 @@ const ProductDetailsPage = () => {
             onClick={() => {
               navigate("/purchase");
             }}
-            className="btn btn-primary fs-5 ml-3"
+            className="btn btn-primary btn-lg btn-block mt-3 mx-3"
           >
             Purchase
           </button>
