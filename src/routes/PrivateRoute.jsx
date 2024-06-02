@@ -2,12 +2,16 @@ import { Navigate, Outlet } from "react-router-dom";
 function PrivateRoute() {
   const isAuth = localStorage.getItem("airtribe-token");
   return isAuth ? (
-    <>
-      <h1>You are on your way to purchase glory!</h1>
+    <div className="container">
+      <p className="fs-6 muted text-end">Authenticated User</p>
       <Outlet />
-    </>
+    </div>
   ) : (
+    <>
+     <h4>Authenticated User</h4>
     <Navigate to="/products" />
+    </>
+   
   );
 }
 

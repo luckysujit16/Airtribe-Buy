@@ -3,13 +3,14 @@ import { useParams } from "react-router-dom";
 import { renderStarRating } from "./Helper";
 import { CartContext } from "./CartContext.jsx";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const ProductDetailsPage = () => {
   const { id } = useParams();
   const { addToCart } = useContext(CartContext);
   const [product, setProduct] = useState(null);
   const [quantity, setQuantity] = useState(1);
-
+  const navigate = useNavigate();
   useEffect(() => {
     axios
       .get(`https://fakestoreapi.com/products/${id}`)
@@ -68,6 +69,12 @@ const ProductDetailsPage = () => {
             className="btn btn-primary btn-lg btn-block mt-3"
           >
             Add to Cart
+          </button>
+          <button
+            onClick={()=> {navigate("/purchase")}}
+            className="btn btn-primary fs-5 ml-3"
+          >
+            Purchase
           </button>
         </div>
       </div>
