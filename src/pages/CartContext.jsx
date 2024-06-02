@@ -1,5 +1,4 @@
 import React, { createContext, useState } from "react";
-import LinksExample from "./Helper";
 
 export const CartContext = createContext();
 
@@ -15,7 +14,7 @@ const CartProvider = ({ children }) => {
             : item
         )
       );
-      // LinksExample("success");
+
       alert(
         "Existing Product Qnt : " +
           existingProduct.quantity +
