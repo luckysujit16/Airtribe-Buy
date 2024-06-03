@@ -10,7 +10,7 @@ import store from "./Store/store.js";
 import App from "./App.jsx";
 import Header from "./pages/Header";
 import Footer from "./pages/Footer.jsx";
-import { totalQuantity } from "./pages/Helper.jsx";
+
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>

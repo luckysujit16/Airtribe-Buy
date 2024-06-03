@@ -1,11 +1,13 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faShoppingCart, faUser } from "@fortawesome/free-solid-svg-icons";
+import { faShoppingCart, faUser, faHeart } from "@fortawesome/free-solid-svg-icons";
 import { useSelector } from "react-redux";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 const Header = () => {
   const cart = useSelector((state) => state.cart.cart); // Subscribe to cart state from Redux store
+  const wishlistState = useSelector((state) => state.cart.wishlist);
   const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
   const totalPrice = cart
     .reduce((total, item) => total + item.price * item.quantity, 0)
@@ -43,6 +45,14 @@ const Header = () => {
           id="navbarSupportedContent"
         >
           <ul className="navbar-nav ml-auto float-end">
+          <li className="nav-item">
+              <a
+                className="nav-link text-danger"
+                href="#"
+                >
+                <FontAwesomeIcon icon={faHeart} size="2x" />                
+              </a>
+              </li>
             <li className="nav-item dropdown">
               <a
                 className="nav-link dropdown-toggle"
