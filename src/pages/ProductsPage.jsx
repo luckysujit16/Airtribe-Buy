@@ -20,7 +20,7 @@ const ProductsPage = () => {
   }, []);
 
   return (
-    <div className="container-fluid h-100 m-2 overflow-hidden">
+    <div className="container-fluid h-100 m-0 p-5 overflow-hidden">
       <h3>Products Page</h3>
       <div className="products-grid">
         {products.map((product) => (
