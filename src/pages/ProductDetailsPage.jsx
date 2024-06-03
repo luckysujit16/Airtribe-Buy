@@ -1,16 +1,18 @@
-import { useEffect, useState, useContext } from "react";
-import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../Store/cartSlice";
 import { renderStarRating } from "./Helper";
-import { CartContext } from "./CartContext.jsx";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 
 const ProductDetailsPage = () => {
   const { id } = useParams();
-  const { addToCart } = useContext(CartContext);
+  const dispatch = useDispatch();
   const [product, setProduct] = useState(null);
   const [quantity, setQuantity] = useState(1);
+
   const navigate = useNavigate();
+
   useEffect(() => {
     axios
       .get(`https://fakestoreapi.com/products/${id}`)
@@ -22,7 +24,11 @@ const ProductDetailsPage = () => {
   }, [id]);
 
   const handleAddToCart = () => {
-    addToCart(product, quantity);
+    if (product && quantity > 0) {
+      dispatch(addToCart({ ...product, quantity }));
+    }
+
+    // alert("Add To cart triggered : " + JSON.stringify(product));
   };
 
   if (!product) {
@@ -68,15 +74,15 @@ const ProductDetailsPage = () => {
             onClick={handleAddToCart}
             className="btn btn-primary btn-lg btn-block mt-3"
           >
-            Add to Cart
+            Add To Cart
           </button>
           <button
             onClick={() => {
-              navigate("/purchase");
+              navigate("/cart");
             }}
             className="btn btn-primary btn-lg btn-block mt-3 mx-3"
           >
-            Purchase
+            Go To Cart
           </button>
         </div>
       </div>

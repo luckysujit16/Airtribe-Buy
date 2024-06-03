@@ -8,10 +8,9 @@ function PrivateRoute() {
     </div>
   ) : (
     <>
-     <h4>Authenticated User</h4>
-    <Navigate to="/products" />
+      <h4>Not Logged In User</h4>
+      <Navigate to="/E404" />
     </>
-   
   );
 }
 

@@ -168,3 +168,10 @@ figcaption p {
 .img-thumbnail {
   max-height: 250px;
 }
+
+.cart-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+}

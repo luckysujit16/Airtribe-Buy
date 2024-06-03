@@ -1,10 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 import { renderStarRating } from "./Helper";
 
 const ProductsPage = () => {
   const [products, setProducts] = useState([]);
+  const cart = useSelector((state) => state.cart.cart); // Subscribe to cart state from Redux store
 
   useEffect(() => {
     axios

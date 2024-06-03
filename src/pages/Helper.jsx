@@ -1,4 +1,5 @@
 import Alert from "react-bootstrap/Alert";
+import { useSelector } from "react-redux";
 
 export const renderStarRating = (rating) => {
   const fullStars = Math.floor(rating);
@@ -13,27 +14,8 @@ export const renderStarRating = (rating) => {
   );
 };
 
-function LinksExample() {
-  return (
-    <>
-      {[
-        "primary",
-        "secondary",
-        "success",
-        "danger",
-        "warning",
-        "info",
-        "light",
-        "dark",
-      ].map((variant) => (
-        <Alert key={variant} variant={variant}>
-          This is a {variant} alert with{" "}
-          <Alert.Link href="#">an example link</Alert.Link>. Give it a click if
-          you like.
-        </Alert>
-      ))}
-    </>
-  );
-}
-
-export default LinksExample;
+export const totalQuantity = () => {
+  const cart = useSelector((state) => state.cart.cart); // Subscribe to cart state from Redux store
+  const totalQuantity = cart.reduce((sum, item) => sum + item.quantity, 0);
+  return totalQuantity;
+};

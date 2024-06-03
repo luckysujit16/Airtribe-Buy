@@ -3,7 +3,6 @@ import { Navigate, createBrowserRouter } from "react-router-dom";
 import PrivateRoute from "./PrivateRoute";
 import ProductsPage from "../pages/ProductsPage";
 import ProductDetailsPage from "../pages/ProductDetailsPage";
-import CartProvider from "../pages/CartContext.jsx";
 import Cart from "../pages/Cart.jsx";
 import CheckoutPage from "../pages/CheckoutPage";
 
@@ -21,7 +20,7 @@ const router = createBrowserRouter([
     element: <ProductDetailsPage />,
   },
   {
-    path: "/purchase",
+    path: "/cart",
     element: <PrivateRoute />,
     children: [
       {
@@ -38,11 +37,7 @@ const router = createBrowserRouter([
 ]);
 
 function AppRouter() {
-  return (
-    <CartProvider>
-      <RouterProvider router={router} />;
-    </CartProvider>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default AppRouter;
