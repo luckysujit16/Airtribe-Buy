@@ -33,7 +33,7 @@ const ProductDetailsPage = () => {
 
   if (!product) {
     return (
-      <div className="container-fluid text-center p-5 m-0 h-100 overflow-hidden">
+      <div className="col-lg-12 col-md-12 col-sm-12 text-center p-5 m-3 overflow-hidden">
         <div className="spinner-grow  text-warning" role="status">
           <span className="visually-hidden">Loading...</span>
         </div>
@@ -41,11 +41,11 @@ const ProductDetailsPage = () => {
     );
   }
   return (
-    <div className="container-fluid p-5 m-0 h-100 overflow-hidden">
-      <div className="row">
+    <div className="col-lg-12 col-md-12 col-sm-12 p-5 m-0 h-100 overflow-hidden">
+      <div className="container">
         <h3>Product Details / {product.title}</h3>
       </div>
-      <div className="col-lg-12 w-100 product-details p-5 overflow-hidden">
+      <div className="col-lg-12 w-100 product-details overflow-hidden">
         <div className="col-lg-12 col-md-6 col-sm-6">
           <img src={product.image} alt={product.title} />
           {/* <h3 className="text-center p-5">{product.title}</h3> */}
@@ -70,20 +70,28 @@ const ProductDetailsPage = () => {
               onChange={(e) => setQuantity(e.target.value)}
             />
           </div>
-          <button
-            onClick={handleAddToCart}
-            className="btn btn-primary btn-lg btn-block mt-3"
-          >
-            Add To Cart
-          </button>
-          <button
-            onClick={() => {
-              navigate("/cart");
-            }}
-            className="btn btn-primary btn-lg btn-block mt-3 mx-3"
-          >
-            Go To Cart
-          </button>
+          <div className="product-cart">
+           
+                <button
+                onClick={handleAddToCart}
+                className="btn btn-primary btn-lg btn-block mt-3"
+              >
+                Add To Cart
+              </button>
+           
+            
+                <button
+                onClick={() => {
+                  navigate("/cart");
+                }}
+                className="btn btn-primary btn-lg btn-block mt-3 mx-3"
+              >
+                Go To Cart
+              </button>
+                    
+          
+          </div>
+          
         </div>
       </div>
     </div>
