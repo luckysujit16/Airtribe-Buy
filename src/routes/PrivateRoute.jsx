@@ -9,7 +9,7 @@ function PrivateRoute() {
   ) : (
     <>
       <h4>Not Logged In User</h4>
-      <Navigate to="/E404" />
+      <Navigate to="/cart" />
     </>
   );
 }
