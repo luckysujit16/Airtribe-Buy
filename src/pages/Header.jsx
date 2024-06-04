@@ -13,6 +13,8 @@ const Header = () => {
     .reduce((total, item) => total + item.price * item.quantity, 0)
     .toFixed(2);
 
+    // console.log(wishlistState.length);
+
   return (
     <header className="container-fluid fixed-top">
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark p-3">
@@ -50,7 +52,12 @@ const Header = () => {
                 className="nav-link text-danger"
                 href="#"
                 >
-                <FontAwesomeIcon icon={faHeart} size="2x" />                
+                <FontAwesomeIcon icon={faHeart} size="2x" />
+                {wishlistState.length > 0 && (
+                  <span className="badge badge-pill badge-danger">
+                    {wishlistState.length}
+                  </span>
+                )}                
               </a>
               </li>
             <li className="nav-item dropdown">

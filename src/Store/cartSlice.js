@@ -60,14 +60,18 @@ const cartSlice = createSlice({
       const existingProduct = state.wishlist.find(
         (item) => item.id === action.payload.id
       );
-      
-      if (!existingProduct) {
+
+      if (existingProduct) {
+        state.wishlist = state.wishlist.filter(
+          (item) => item.id !== action.payload.id
+        );
+      } else {
         state.wishlist.push(action.payload);
-        localStorage.setItem("wishlist", JSON.stringify(state.wishlist));
-         }
-      // alert("Reached Executed IF addToWishList")
-    },
-  }
+      }
+
+      localStorage.setItem("wishlist", JSON.stringify(state.wishlist));
+    }
+  },
 });
 
 export const {
