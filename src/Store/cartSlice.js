@@ -16,9 +16,9 @@ const cartSlice = createSlice({
       );
 
       if (existingProduct) {
-        existingProduct.quantity += action.payload.quantity;
+        existingProduct.quantity = Number(existingProduct.quantity) + Number(action.payload.quantity);
       } else {
-        state.cart.push(action.payload);
+        state.cart.push({ ...action.payload, quantity: Number(action.payload.quantity) });
       }
 
       localStorage.setItem("cart", JSON.stringify(state.cart));
@@ -26,7 +26,7 @@ const cartSlice = createSlice({
     updateQuantity: (state, action) => {
       const product = state.cart.find((item) => item.id === action.payload.id);
       if (product) {
-        product.quantity = action.payload.quantity;
+        product.quantity = Number(action.payload.quantity);
       }
       localStorage.setItem("cart", JSON.stringify(state.cart));
     },
@@ -37,9 +37,8 @@ const cartSlice = createSlice({
     increaseQuantity: (state, action) => {
       const product = state.cart.find((item) => item.id === action.payload.id);
       if (product) {
-        product.quantity += 1;
+        product.quantity = Number(product.quantity) + 1;
       }
-      // alert("Item Increased");
       localStorage.setItem("cart", JSON.stringify(state.cart));
     },
     decreaseQuantity: (state, action) => {
@@ -48,8 +47,8 @@ const cartSlice = createSlice({
       );
       if (productIndex !== -1) {
         const product = state.cart[productIndex];
-        if (product.quantity > 1) {
-          product.quantity -= 1;
+        if (Number(product.quantity) > 1) {
+          product.quantity = Number(product.quantity) - 1;
         } else {
           state.cart.splice(productIndex, 1);
         }

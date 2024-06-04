@@ -66,7 +66,7 @@ const ProductDetailsPage = () => {
               id="quantity"
               name="quantity"
               min="1"
-              value={quantity}
+              value={Number(quantity)}
               onChange={(e) => setQuantity(e.target.value)}
             />
           </div>

@@ -24,8 +24,8 @@ const Cart = () => {
   };
 
   return (
-    <>
-      <h3>Shopping Cart</h3>
+    <div className="vh-100">
+      <h3 className="text-muted mb-3">Shopping Cart</h3>
       <table className="table table-bordered">
         <thead className="thead table-dark">
           <tr className="text-center">
@@ -60,21 +60,21 @@ const Cart = () => {
                         className="btn btn-action"
                         onClick={() => handleDecrease(item)}
                       >
-                        <i className="bi bi-file-minus-fill fs-4"></i>
+                        <i className="bi bi-file-minus-fill fs-3"></i>
                       </button>
                     </span>
-                    <span className="p-2 fs-6 fw-bold">{item.quantity}</span>
+                    <span className="p-2 fs-4 fw-bold">{item.quantity}</span>
                     <span>
                       <button
                         className="btn btn-action"
                         onClick={() => handleIncrease(item)}
                       >
-                        <i className="bi bi-file-plus-fill fs-4"></i>
+                        <i className="bi bi-file-plus-fill fs-3"></i>
                       </button>
                     </span>
                   </div>
                 </td>
-                <td className="text-center fs-5 fw-bold my-2">
+                <td className="text-center fs-4 fw-bold mt-5 p-4">
                   ${(item.price * item.quantity).toFixed(2)}
                 </td>
               </tr>
@@ -89,7 +89,7 @@ const Cart = () => {
           <button className="btn btn-lg btn-success">Checkout</button>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
