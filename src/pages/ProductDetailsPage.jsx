@@ -45,12 +45,12 @@ const ProductDetailsPage = () => {
       <div className="container">
         <h3>Product Details / {product.title}</h3>
       </div>
-      <div className="col-lg-12 w-100 product-details overflow-hidden">
-        <div className="col-lg-12 col-md-6 col-sm-6">
+      <div className="col-lg-12 col-md-12 col-sm-12 product-details overflow-hidden">
+        <div className="col-lg-12 col-md-12 col-sm-12">
           <img src={product.image} alt={product.title} />
           {/* <h3 className="text-center p-5">{product.title}</h3> */}
         </div>
-        <div className="col-lg-12 col-md-6 col-sm-6">
+        <div className="col-lg-12 col-md-12 col-sm-12">
           <p className="fs-5">{product.description}</p>
           <p className="fs-3 fw-bold">Price: ${product.price}</p>
           <p className="fs-5">Category: {product.category}</p>
@@ -84,7 +84,7 @@ const ProductDetailsPage = () => {
                 onClick={() => {
                   navigate("/cart");
                 }}
-                className="btn btn-primary btn-lg btn-block mt-3 mx-3"
+                className="btn btn-primary btn-lg btn-block mt-3"
               >
                 Go To Cart
               </button>

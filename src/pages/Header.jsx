@@ -18,7 +18,7 @@ const Header = () => {
   return (
     <header className="container-fluid fixed-top">
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark p-3">
-        <a className="navbar-brand" href="#">
+        <a className="navbar-brand" href="/">
           Airtribe-Buy
         </a>
         <button
