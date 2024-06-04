@@ -24,7 +24,7 @@ const Cart = () => {
   };
 
   return (
-    <div className="vh-100">
+    <div className="container mt-0 p-0">
       <h3 className="text-muted mb-3">Shopping Cart</h3>
       <table className="table table-bordered">
         <thead className="thead table-dark">
