@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   cart: JSON.parse(localStorage.getItem("cart")) || [],
+  wishlist: JSON.parse(localStorage.getItem("wishlist")) || [],
 };
 
 const cartSlice = createSlice({
@@ -55,6 +56,21 @@ const cartSlice = createSlice({
       }
       localStorage.setItem("cart", JSON.stringify(state.cart));
     },
+    addToWishlist: (state, action) => {
+      const existingProduct = state.wishlist.find(
+        (item) => item.id === action.payload.id
+      );
+
+      if (existingProduct) {
+        state.wishlist = state.wishlist.filter(
+          (item) => item.id !== action.payload.id
+        );
+      } else {
+        state.wishlist.push(action.payload);
+      }
+
+      localStorage.setItem("wishlist", JSON.stringify(state.wishlist));
+    }
   },
 });
 
@@ -64,5 +80,6 @@ export const {
   removeFromCart,
   increaseQuantity,
   decreaseQuantity,
+  addToWishlist,
 } = cartSlice.actions;
 export default cartSlice.reducer;

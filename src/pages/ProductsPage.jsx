@@ -1,12 +1,16 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { addToWishlist } from "../Store/cartSlice"
 import { renderStarRating } from "./Helper";
 
 const ProductsPage = () => {
   const [products, setProducts] = useState([]);
-  const cart = useSelector((state) => state.cart.cart); // Subscribe to cart state from Redux store
+ 
+  const dispatch = useDispatch();
+  // const cart = useSelector((state) => state.cart.cart); // Subscribe to cart state from Redux store
+  const wishlistState = useSelector((state) => state.cart.wishlist);
 
   useEffect(() => {
     axios
@@ -19,13 +23,28 @@ const ProductsPage = () => {
       .catch((err) => console.log(err));
   }, []);
 
+  const handleWishlistClick = (product) => {
+    const { id, title, price, category, rating, image } = product;
+    dispatch(addToWishlist({ id, title, price, category, rating, image }));
+  };
+  
+
   return (
     <div className="container-fluid h-100 m-0 p-5 overflow-hidden">
       <h3>Products Page</h3>
       <div className="products-grid">
         {products.map((product) => (
           <div className="product-card" key={product.id}>
+
             <figure>
+              
+              <i className={`bi ${
+                  wishlistState.some((item) => item.id === product.id)
+                    ? "bi-heart-fill"
+                    : "bi-heart"
+                } text-danger fs-3`} id="wishlist" value={product.id} onClick={() => handleWishlistClick(product)}></i>
+              
+              
               <img src={product.image} alt={product.title} />
 
               <figcaption>

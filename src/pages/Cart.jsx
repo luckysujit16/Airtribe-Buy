@@ -1,10 +1,9 @@
-import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { increaseQuantity, decreaseQuantity } from "../Store/cartSlice";
 
 const Cart = () => {
-  const dispatch = useDispatch();
-  const cart = useSelector((state) => state.cart.cart);
+  ;const dispatch = useDispatch();
+  const cart = useSelector((state) => state.cart.cart)
 
   const handleIncrease = (product) => {
     dispatch(increaseQuantity({ id: product.id }));
@@ -82,12 +81,12 @@ const Cart = () => {
             ))}
         </tbody>
       </table>
-      <div className="row">
-        <div className="col-12">
+      <div className="container float-end">
+        <div className="float-end">
           <h4>Total Amount: ${calculateTotal()}</h4>
         </div>
         <div className="col-12">
-          <button className="btn btn-success">Checkout</button>
+          <button className="btn btn-lg btn-success">Checkout</button>
         </div>
       </div>
     </>
