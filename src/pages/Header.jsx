@@ -1,20 +1,24 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faShoppingCart, faUser } from "@fortawesome/free-solid-svg-icons";
+import { faShoppingCart, faUser, faHeart } from "@fortawesome/free-solid-svg-icons";
 import { useSelector } from "react-redux";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 const Header = () => {
   const cart = useSelector((state) => state.cart.cart); // Subscribe to cart state from Redux store
+  const wishlistState = useSelector((state) => state.cart.wishlist);
   const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
   const totalPrice = cart
     .reduce((total, item) => total + item.price * item.quantity, 0)
     .toFixed(2);
 
+    // console.log(wishlistState.length);
+
   return (
     <header className="container-fluid fixed-top">
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark p-3">
-        <a className="navbar-brand" href="#">
+        <a className="navbar-brand" href="/">
           Airtribe-Buy
         </a>
         <button
@@ -32,7 +36,7 @@ const Header = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item active">
-              <a className="nav-link" href="/products">
+              <a className="nav-link fw-bold fs-6" href="/products">
                 Shop
               </a>
             </li>
@@ -43,6 +47,19 @@ const Header = () => {
           id="navbarSupportedContent"
         >
           <ul className="navbar-nav ml-auto float-end">
+          <li className="nav-item">
+              <a
+                className="nav-link text-danger"
+                href="#"
+                >
+                <FontAwesomeIcon icon={faHeart} size="2x" />
+                {wishlistState.length > 0 && (
+                  <span className="badge badge-pill badge-danger">
+                    {wishlistState.length}
+                  </span>
+                )}                
+              </a>
+              </li>
             <li className="nav-item dropdown">
               <a
                 className="nav-link dropdown-toggle"
