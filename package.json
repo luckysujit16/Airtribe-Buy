@@ -20,6 +20,7 @@
     "@mantine/notifications": "^7.10.0",
     "@reduxjs/toolkit": "^2.2.5",
     "@tabler/core": "^1.0.0-beta20",
+    "audit": "^0.0.6",
     "axios": "^1.7.2",
     "bootstrap-icons": "^1.11.3",
     "bootstrap-table": "^1.22.6",
