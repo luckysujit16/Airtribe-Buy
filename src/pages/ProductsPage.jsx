@@ -30,8 +30,8 @@ const ProductsPage = () => {
   
 
   return (
-    <div className="container-fluid h-100 m-0 p-5 overflow-hidden">
-      <h3>Products Page</h3>
+    <div className="container-fluid mt-5 p-5 overflow-hidden">
+      <h3 className="pb-4">Products Page</h3>
       <div className="products-grid">
         {products.map((product) => (
           <div className="product-card" key={product.id}>
