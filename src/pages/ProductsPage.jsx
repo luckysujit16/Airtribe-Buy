@@ -35,7 +35,7 @@ const ProductsPage = () => {
       <div className="products-grid">
         {products.map((product) => (
           <div className="product-card" key={product.id}>
-
+            <Link to={`/products/${product.id}`}></Link>
             <figure>
               
               <i className={`bi ${
@@ -63,6 +63,7 @@ const ProductsPage = () => {
                 </button>
               </Link>
             </figure>
+            
           </div>
         ))}
       </div>
