@@ -70,28 +70,33 @@ const ProductDetailsPage = () => {
               onChange={(e) => setQuantity(e.target.value)}
             />
           </div>
-          <div className="product-cart">
-           
-                <button
-                onClick={handleAddToCart}
-                className="btn btn-primary btn-lg btn-block mt-3"
-              >
-                Add To Cart
-              </button>
-           
-            
-                <button
-                onClick={() => {
-                  navigate("/cart");
-                }}
-                className="btn btn-primary btn-lg btn-block mt-3"
-              >
-                Go To Cart
-              </button>
-                    
-          
+          <div className="add-to-cart">
+            <button
+              onClick={handleAddToCart}
+              className="btn btn-warning btn-lg fw-bold text-muted btn-block mt-3"
+            >
+              Add To Cart
+            </button>
           </div>
-          
+          <div className="product-cart">
+            <button
+              onClick={() => {
+                navigate("/products");
+              }}
+              className="btn btn-primary btn-lg btn-block mt-3"
+            >
+              Back To Shop
+            </button>
+
+            <button
+              onClick={() => {
+                navigate("/cart");
+              }}
+              className="btn btn-primary btn-lg btn-block mt-3"
+            >
+              Go To Cart
+            </button>
+          </div>
         </div>
       </div>
     </div>

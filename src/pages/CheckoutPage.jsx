@@ -132,6 +132,13 @@ const CheckoutPage = () => {
             ))}
         </tbody>
       </table>
+      <div className="col-lg-12 mt-4 text-center">
+        <span className="fs-6 p-2 text-bg-warning">
+          * IMPOPRTANT !!! : Please check products above and add or remove
+          before moving to payment page by clicking Pay Now button below.
+        </span>
+      </div>
+
       <div className="container float-end">
         <div className="float-end">
           <h4>Total Amount: ${calculateTotal()}</h4>

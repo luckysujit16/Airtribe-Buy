@@ -2,12 +2,12 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { addToWishlist } from "../Store/cartSlice"
+import { addToWishlist } from "../Store/cartSlice";
 import { renderStarRating } from "./Helper";
 
 const ProductsPage = () => {
   const [products, setProducts] = useState([]);
- 
+
   const dispatch = useDispatch();
   // const cart = useSelector((state) => state.cart.cart); // Subscribe to cart state from Redux store
   const wishlistState = useSelector((state) => state.cart.wishlist);
@@ -27,7 +27,6 @@ const ProductsPage = () => {
     const { id, title, price, category, rating, image } = product;
     dispatch(addToWishlist({ id, title, price, category, rating, image }));
   };
-  
 
   return (
     <div className="container-fluid mt-5 p-5 overflow-hidden">
@@ -37,14 +36,17 @@ const ProductsPage = () => {
           <div className="product-card" key={product.id}>
             <Link to={`/products/${product.id}`}></Link>
             <figure>
-              
-              <i className={`bi ${
+              <i
+                className={`bi ${
                   wishlistState.some((item) => item.id === product.id)
                     ? "bi-heart-fill"
                     : "bi-heart"
-                } text-danger fs-3`} id="wishlist" value={product.id} onClick={() => handleWishlistClick(product)}></i>
-              
-              
+                } text-danger fs-3`}
+                id="wishlist"
+                value={product.id}
+                onClick={() => handleWishlistClick(product)}
+              ></i>
+
               <img src={product.image} alt={product.title} />
 
               <figcaption>
@@ -59,11 +61,10 @@ const ProductsPage = () => {
               </figcaption>
               <Link to={`/products/${product.id}`}>
                 <button type="button" className="btn btn-primary m-2">
-                  View Details
+                  Go To Cart
                 </button>
               </Link>
             </figure>
-            
           </div>
         ))}
       </div>
