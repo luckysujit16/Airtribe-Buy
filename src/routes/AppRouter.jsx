@@ -5,6 +5,8 @@ import ProductsPage from "../pages/ProductsPage";
 import ProductDetailsPage from "../pages/ProductDetailsPage";
 import Cart from "../pages/Cart.jsx";
 import CheckoutPage from "../pages/CheckoutPage";
+import ConfirmationPage from "../pages/ConfirmationPage.jsx";
+import OrderHistoryPage from "../pages/OrderHistoryPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +22,20 @@ const router = createBrowserRouter([
     element: <ProductDetailsPage />,
   },
   {
+    path: "/confirmation",
+    element: <ConfirmationPage />,
+    children: [
+      {
+        path: "/confirmation/:payment_id:&order_id:&signature",
+      },
+    ],
+  },
+  {
+    path: "/orderhistory",
+    element: <OrderHistoryPage />,
+  },
+
+  {
     path: "/cart",
     element: <PrivateRoute />,
     children: [
@@ -30,6 +46,10 @@ const router = createBrowserRouter([
 
       {
         path: "checkout",
+        element: <CheckoutPage />,
+      },
+      {
+        path: "/cart/:order",
         element: <CheckoutPage />,
       },
     ],

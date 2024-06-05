@@ -13,13 +13,13 @@
   box-shadow: 2px 2px 10px 2px #5e5e5e;
 }
 
-.container-fluid{
+.container-fluid {
   --bs-gutter-x: 0 !important;
 }
 
 #wishlist {
   float: right;
-  flex-direction: column-reverse;
+  flex-direction: row;
 }
 
 .movie,
@@ -184,7 +184,13 @@ figcaption p {
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
   padding: 1rem;
+}
 
+.popup-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  padding: 1rem;
 }
 
 .product-cart {
@@ -193,6 +199,15 @@ figcaption p {
   gap: 2rem;
 }
 
+.nav-menu {
+  display: grid;
+}
+
+.dropdown-menu[data-bs-popper] {
+  top: 150% !important;
+  left: -100px !important;
+  margin-top: var(--bs-dropdown-spacer);
+}
 @media only screen and (max-width: 768px) {
   /* For mobile phones: */
   [class*="col-"] {
@@ -217,4 +232,3 @@ figcaption p {
     gap: 2rem;
   }
 }
-
