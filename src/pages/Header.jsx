@@ -5,6 +5,7 @@ import {
   faHeart,
 } from "@fortawesome/free-solid-svg-icons";
 import { useSelector } from "react-redux";
+// import { alertGo } from "react-alert-go";
 
 const Header = () => {
   const cart = useSelector((state) => state.cart.cart); // Subscribe to cart state from Redux store
@@ -19,6 +20,12 @@ const Header = () => {
       0
     )
     .toFixed(2);
+
+  const handleLogout = () => {
+    localStorage.removeItem("sessionToken");
+    window.location.href = "/login";
+    // alertGo("Logged in Successfully");
+  };
 
   return (
     <header className="container-fluid fixed-top">
@@ -53,9 +60,17 @@ const Header = () => {
           </ul>
         </div>
         <div className="d-flex flex-row-reverse bd-highlight">
-          <ul className="navbar-nav ml-auto" id="wishlist">
+          <ul className="navbar-nav ml-auto">
             <li className="nav-item">
-              <a className="nav-link text-danger" href="#">
+              <a
+                className="nav-link dropdown-toggle"
+                href="#"
+                id="wishlistDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
                 <FontAwesomeIcon icon={faHeart} size="2x" />
                 {wishlistState.length > 0 && (
                   <span className="badge badge-pill badge-danger">
@@ -118,7 +133,7 @@ const Header = () => {
                 href="#"
                 id="userDropdown"
                 role="button"
-                data-toggle="dropdown"
+                data-bs-toggle="dropdown"
                 aria-haspopup="true"
                 aria-expanded="false"
               >
@@ -128,11 +143,13 @@ const Header = () => {
                 <a className="dropdown-item" href="/profile">
                   Profile
                 </a>
-                <a className="dropdown-item" href="/settings">
-                  Settings
-                </a>
                 <div className="dropdown-divider"></div>
-                <a className="dropdown-item" href="/logout">
+                <a
+                  className="dropdown-item"
+                  href="/logout"
+                  data-bs-dismiss="alert"
+                  onClick={() => handleLogout()}
+                >
                   Logout
                 </a>
               </div>

@@ -7,11 +7,27 @@ import Cart from "../pages/Cart.jsx";
 import CheckoutPage from "../pages/CheckoutPage";
 import ConfirmationPage from "../pages/ConfirmationPage.jsx";
 import OrderHistoryPage from "../pages/OrderHistoryPage.jsx";
+import Register from "../pages/Register.jsx";
+import Login from "../pages/Login.jsx";
+import Profile from "../pages/Profile.jsx";
+import E404 from "../pages/E404.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Navigate to="/products" />,
+  },
+  {
+    path: "*",
+    element: <E404 />,
+  },
+  {
+    path: "/register",
+    element: <Register />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
   },
   {
     path: "/products",
@@ -51,6 +67,10 @@ const router = createBrowserRouter([
       {
         path: "/cart/:order",
         element: <CheckoutPage />,
+      },
+      {
+        path: "/cart/profile",
+        element: <Profile />,
       },
     ],
   },

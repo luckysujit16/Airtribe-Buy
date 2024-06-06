@@ -1,9 +1,18 @@
 {
-  "users": [],
-
+  "users": [
+    {
+      "id": "55b1",
+      "email": "luckysujit@gmail.com",
+      "password": "Sujit@123#@",
+      "sessionToken": "token-1717661827334"
+    },
+    {
+      "id": "8309",
+      "email": "aaressinfomedia@gmail.com",
+      "password": "Sujit@123"
+    }
+  ],
   "orderHistory": [],
-
   "wishlist": [],
-
   "razorPay": []
 }

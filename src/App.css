@@ -1,6 +1,19 @@
 * {
   box-sizing: border-box;
 }
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  bottom: 0;
+  position: fixed;
+  align-content: center;
+  height: 65px;
+}
 .App {
   text-align: center;
 }
@@ -31,11 +44,6 @@
   gap: 1rem;
   margin-top: 2%;
   padding: 20px;
-}
-
-.footer {
-  height: 75px;
-  align-content: center;
 }
 
 /* .mobile img {

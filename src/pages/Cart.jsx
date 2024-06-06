@@ -27,7 +27,7 @@ const Cart = () => {
 
   return (
     <div className="container mt-0 p-0">
-      <h3 className="text-muted mb-3">Shopping Cart</h3>
+      <h3 className="text-muted mt-4 mb-3">Shopping Cart</h3>
       <table className="table table-bordered">
         <thead className="thead table-dark">
           <tr className="text-center">
