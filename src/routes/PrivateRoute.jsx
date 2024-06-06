@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 
 function PrivateRoute() {
   const isAuth = localStorage.getItem("sessionToken");
@@ -9,7 +9,7 @@ function PrivateRoute() {
     </div>
   ) : (
     <>
-      <a href="/login" />
+      <Navigate to="/login" />
     </>
   );
 }
