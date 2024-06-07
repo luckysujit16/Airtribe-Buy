@@ -41,16 +41,16 @@ const ProductDetailsPage = () => {
     );
   }
   return (
-    <div className="col-lg-12 col-md-12 col-sm-12 p-5 m-0 h-100 overflow-hidden">
-      <div className="container">
+    <div className="col-lg-12 col-md-12 col-sm-12 p-5 mt-5 overflow-hidden">
+      <div className="container-fluid mb-5">
         <h3>Product Details / {product.title}</h3>
       </div>
       <div className="col-lg-12 col-md-12 col-sm-12 product-details overflow-hidden">
-        <div className="col-lg-12 col-md-12 col-sm-12">
+        <div className="container text-center">
           <img src={product.image} alt={product.title} />
           {/* <h3 className="text-center p-5">{product.title}</h3> */}
         </div>
-        <div className="col-lg-12 col-md-12 col-sm-12">
+        <div className="container">
           <p className="fs-5 product-title">{product.description}</p>
           <p className="fs-3 fw-bold">Price: ${product.price}</p>
           <p className="fs-5">Category: {product.category}</p>
