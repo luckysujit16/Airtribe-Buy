@@ -51,7 +51,7 @@ const ProductDetailsPage = () => {
           {/* <h3 className="text-center p-5">{product.title}</h3> */}
         </div>
         <div className="col-lg-12 col-md-12 col-sm-12">
-          <p className="fs-5">{product.description}</p>
+          <p className="fs-5 product-title">{product.description}</p>
           <p className="fs-3 fw-bold">Price: ${product.price}</p>
           <p className="fs-5">Category: {product.category}</p>
           <p className="fs-3 fw-bolder">
