@@ -234,9 +234,6 @@ figcaption p {
   margin-top: var(--bs-dropdown-spacer);
 }
 
-.p-2 {
-  padding: 0.4rem !important;
-}
 @media only screen and (max-width: 768px) {
   /* For mobile phones: */
   [class*="col-"] {

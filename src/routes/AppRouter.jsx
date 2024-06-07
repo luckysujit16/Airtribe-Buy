@@ -47,6 +47,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/confirmation/:payment_id:&order_id:&signature",
+        element: <ConfirmationPage />,
       },
     ],
   },
