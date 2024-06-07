@@ -61,7 +61,7 @@ const ProductsPage = () => {
               </figcaption>
               <Link to={`/products/${product.id}`}>
                 <button type="button" className="btn btn-primary m-2">
-                  Go To Cart
+                  Add To Cart
                 </button>
               </Link>
             </figure>
