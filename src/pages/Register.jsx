@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import logoImg from "../assets/react.svg";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from "@fortawesome/free-solid-svg-icons";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 const Register = () => {
